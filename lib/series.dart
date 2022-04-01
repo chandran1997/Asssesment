@@ -14,8 +14,6 @@ class SeriesPageNet extends StatefulWidget {
 }
 
 class _SeriesPageNetState extends State<SeriesPageNet> {
-  List _items = [];
-
   // Future<Details> readJson() async {
   //   http.Response response = await http.get(Uri.parse(
   //       'https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json?'));
@@ -30,7 +28,6 @@ class _SeriesPageNetState extends State<SeriesPageNet> {
     http.Response response = await http.get(Uri.parse(
         'https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json?'));
     Map<String, dynamic> data = await json.decode(response.body);
-
     return Details.fromJson(data);
   }
 
@@ -54,8 +51,8 @@ class _SeriesPageNetState extends State<SeriesPageNet> {
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 child: GridView.builder(
                   itemCount: _items.length,
-                  itemBuilder: (BuildContext context,int index) {
-                    var model = snapshot.entries[index];
+                  itemBuilder: (BuildContext context, int index) {
+                    var model = snapshot.entries.length;
                     model.programType = 'movie';
                     return Stack(
                       children: [
